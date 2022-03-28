@@ -1,8 +1,16 @@
+import { useQuery } from "graphql-hooks";
 
-const graph = () => {
-  return (
-    <div>Probando Graphql</div>
-  )
-}
+const POST_QUERY = `query Post {
+  post {
+    title
+  }
+}`;
 
-export default graph
+const Graph = () => {
+  const { data } = useQuery(POST_QUERY);
+  console.log(data);
+
+  return <div>Probando GraphQl</div>;
+};
+
+export default Graph;
